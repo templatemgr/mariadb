@@ -54,7 +54,7 @@ OVER_WRITE_INIT="yes"
 TMP_DIR="/tmp/config-$TEMPLATE_NAME"
 CONFIG_DIR="/usr/local/share/template-files/config"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-WWW_ROOT_DIR="${WWW_ROOT_DIR:-/usr/share/httpd/default}"
+WWW_ROOT_DIR="${WWW_ROOT_DIR:-/usr/share/webapps/mysql}"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 INIT_DIR="/usr/local/etc/docker/init.d"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -71,7 +71,6 @@ mkdir -p "$CONFIG_DIR" "$INIT_DIR"
 find "$TMP_DIR/" -iname '.gitkeep' -exec rm -f {} \;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # custom pre execution commands
-WWW_ROOT_DIR="${WWW_ROOT_DIR:-/usr/share/webapps/mysql}"
 [ -e "/etc/my.cnf" ] && rm -Rf "/etc/my.cnf" "/etc"/my*.d "/etc/mysql"
 [ -d "${WWW_ROOT_DIR}" ] && rm -Rf "${WWW_ROOT_DIR}"
 mkdir -p "/etc/phpmyadmin" "${WWW_ROOT_DIR}"
